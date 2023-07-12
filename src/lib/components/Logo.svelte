@@ -1,0 +1,40 @@
+<main>
+	<a href="/"
+		><div class="logo">
+			<img class="brand-logo" alt="modern admin logo" src="img/logo.png" />
+			<h4>Modern</h4>
+		</div></a
+	>
+</main>
+
+<style>
+	main {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		background-color: white;
+		color: var(--primary);
+		padding: 5px 5px -1px 5px;
+		width: 100%;
+	}
+	.logo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		letter-spacing: 0.5px;
+		width: 122px;
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+	h4 {
+		margin: 0;
+		font-weight: 600;
+	}
+	img {
+		width: 35px;
+		margin-right: 8px;
+	}
+</style>
