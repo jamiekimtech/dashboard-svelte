@@ -175,6 +175,41 @@
 					label: 'Knowledge Base'
 				}
 			]
+		},
+		{
+			group: 'LAYOUTS',
+			items: [
+				{
+					href: '/page-layouts',
+					icon: 'la-columns',
+					label: 'Page Layouts'
+				},
+				{
+					href: '/navbars',
+					icon: 'ci:hamburger-lg',
+					label: 'Navbars'
+				},
+				{
+					href: '/vertical-nav',
+					icon: 'ps:double-arrow',
+					label: 'Vertical Nav'
+				},
+				{
+					href: '/horizontal-nav',
+					icon: 'octicon:arrow-both-24',
+					label: 'Horizontal Nav'
+				},
+				{
+					href: '/page-headers',
+					icon: 'icons8:header',
+					label: 'Page Headers'
+				},
+				{
+					href: '/footers',
+					icon: 'la-download',
+					label: 'Footers'
+				}
+			]
 		}
 	];
 </script>
