@@ -1,8 +1,8 @@
 <script>
-	import NavItem from './NavItem.svelte';
 	import Icon from '@iconify/svelte';
 	import { hamburgerOpen, toggleMenu } from '../../menuStore';
 	import { navItems } from '../../navItems';
+	import NavItem from './NavItem.svelte';
 
 	export let width = '54';
 	let color = 'var(--primary)';
@@ -121,8 +121,7 @@
 		transform: translateX(-100%);
 		transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 		opacity: 0;
-	}
-
+		}
 	nav.open {
 		transform: translateX(0);
 		opacity: 1;

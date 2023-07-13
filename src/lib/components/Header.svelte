@@ -27,8 +27,14 @@
 		</svg>
 	</button>
 	{#if drawerOpen}
-		<h1>Drawer is open</h1>
-	{/if}
+	<div class="openedDrawer">
+		<div>O-</div>
+		<div class='rightDrawer'><div>Flag</div>
+		<div>Bell</div>
+		<div>Message</div>
+		<div>Avatar</div>
+	</div></div>
+			{/if}
 </header>
 
 <style>
@@ -40,8 +46,22 @@
 		border: none;
 		background-color: transparent;
 	}
-	header {
-		position: sticky;
-		z-index: 100;
+
+	.openedDrawer {
+		display: flex;
+		justify-content: space-between;
+		position: absolute;
+		top: 70px;
+		left: 0;
+		width: 100%;
+		z-index: 10;
+		padding: 10px;
+		background-color: white;
+		height: 62px;
 	}
+
+.rightDrawer {
+	display: flex;
+	gap: 10px;
+}
 </style>

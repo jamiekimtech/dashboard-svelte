@@ -1,7 +1,7 @@
 <script>
+	import Header from '../lib/components/Header.svelte';
 	import Logo from '../lib/components/Logo.svelte';
 	import NavBar from '../lib/components/NavBar.svelte';
-	import Header from '../lib/components/Header.svelte';
 
 	let hamburgerOpen = false;
 	let drawerOpen = false;
@@ -19,7 +19,7 @@
 	<header>
 		<NavBar />
 		<Logo />
-		<Header />
+		<Header/>
 	</header>
 	<div class="container">
 		<slot />
@@ -64,7 +64,7 @@
 		color: var(--primary);
 		padding: 5px 5px -1px 5px;
 		z-index: 10;
-		position: absolute;
+		position: fixed;
 		top: 0;
 		height: 70px;
 		filter: drop-shadow(0px 0px 9px rgba(0, 0, 0, 0.15));
