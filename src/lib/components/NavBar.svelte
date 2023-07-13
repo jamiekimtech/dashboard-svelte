@@ -1,217 +1,31 @@
 <script>
 	import NavItem from './NavItem.svelte';
+	import Icon from '@iconify/svelte';
 	import { hamburgerOpen, toggleMenu } from '../../menuStore';
+	import { navItems } from '../../navItems';
 
 	export let width = '54';
-
 	let color = 'var(--primary)';
 
-	const navItems = [
-		{
-			items: [
-				{
-					href: '/',
-					icon: 'la-home',
-					label: 'Dashboard'
-				},
-				{
-					href: '/templates',
-					icon: 'ph:monitor',
-					label: 'Templates'
-				}
-			]
-		},
-		{
-			group: 'ADMIN PANELS',
-			items: [
-				{
-					href: '/ecommerce',
-					icon: 'la:shopping-cart',
-					label: 'eCommerce'
-				},
-				{
-					href: '/travel-booking',
-					icon: 'la-plane',
-					label: 'Travel & Booking'
-				},
-				{
-					href: '/hospital',
-					icon: 'la-stethoscope',
-					label: 'Hospital'
-				},
-				{
-					href: '/crypto',
-					icon: 'la-bitcoin',
-					label: 'Crypto'
-				},
-				{
-					href: '/support-ticket',
-					icon: 'la-tag',
-					label: 'Support Ticket'
-				},
-				{
-					href: '/bank',
-					icon: 'ph:bank',
-					label: 'Bank'
-				}
-			]
-		},
-		{
-			group: 'APPS',
-			items: [
-				{
-					href: '/todo',
-					icon: 'la-check-square',
-					label: 'ToDo'
-				},
-				{
-					href: '/contacts',
-					icon: 'la-users',
-					label: 'Contacts'
-				},
-				{
-					href: '/email',
-					icon: 'la-envelope',
-					label: 'Email'
-				},
-				{
-					href: '/chat',
-					icon: 'la-comments',
-					label: 'Chat'
-				},
-				{
-					href: '/kanban',
-					icon: 'carbon:document',
-					label: 'Kanban'
-				},
-				{
-					href: '/project',
-					icon: 'la-briefcase',
-					label: 'Project'
-				},
-				{
-					href: '/calendars',
-					icon: 'la-calendar',
-					label: 'Calendars'
-				}
-			]
-		},
-		{
-			group: 'PAGES',
-			items: [
-				{
-					href: '/news-feed',
-					icon: 'icons8:news',
-					label: 'News Feed'
-				},
-				{
-					href: '/social-feed',
-					icon: 'icons8:share',
-					label: 'Social Feed'
-				},
-				{
-					href: '/invoice',
-					icon: 'la-clipboard',
-					label: 'Invoice'
-				},
-				{
-					href: '/timelines',
-					icon: 'la-film',
-					label: 'Timelines'
-				},
-				{
-					href: '/account-setting',
-					icon: 'la-user-plus',
-					label: 'Account Setting'
-				},
-				{
-					href: '/users',
-					icon: 'la-user',
-					label: 'Users'
-				},
-				{
-					href: '/gallery',
-					icon: 'la-image',
-					label: 'Gallery'
-				},
-				{
-					href: '/search',
-					icon: 'la-search',
-					label: 'Search'
-				},
-				{
-					href: '/authentication',
-					icon: 'la-unlock',
-					label: 'Authentication'
-				},
-				{
-					href: '/error',
-					icon: 'ph:warning',
-					label: 'Error'
-				},
-				{
-					href: '/others',
-					icon: 'ph:file-text-duotone',
-					label: 'Others'
-				},
-				{
-					href: '/pricing',
-					icon: 'ph:money-light',
-					label: 'Pricing'
-				},
-				{
-					href: '/checkout',
-					icon: 'la-credit-card',
-					label: 'Checkout'
-				},
-				{
-					href: '/faq',
-					icon: 'la-question',
-					label: 'FAQ'
-				},
-				{
-					href: '/knowledge-base',
-					icon: 'la-database',
-					label: 'Knowledge Base'
-				}
-			]
-		},
-		{
-			group: 'LAYOUTS',
-			items: [
-				{
-					href: '/page-layouts',
-					icon: 'la-columns',
-					label: 'Page Layouts'
-				},
-				{
-					href: '/navbars',
-					icon: 'ci:hamburger-lg',
-					label: 'Navbars'
-				},
-				{
-					href: '/vertical-nav',
-					icon: 'ps:double-arrow',
-					label: 'Vertical Nav'
-				},
-				{
-					href: '/horizontal-nav',
-					icon: 'octicon:arrow-both-24',
-					label: 'Horizontal Nav'
-				},
-				{
-					href: '/page-headers',
-					icon: 'icons8:header',
-					label: 'Page Headers'
-				},
-				{
-					href: '/footers',
-					icon: 'la-download',
-					label: 'Footers'
-				}
-			]
+	let activeGroupIndex = null;
+	let activeSubgroupIndex = null;
+
+	function toggleGroup(groupIndex) {
+		if (activeGroupIndex === groupIndex) {
+			activeGroupIndex = null;
+		} else {
+			activeGroupIndex = groupIndex;
+			activeSubgroupIndex = null;
 		}
-	];
+	}
+
+	function toggleSubgroup(subgroupIndex) {
+		if (activeSubgroupIndex === subgroupIndex) {
+			activeSubgroupIndex = null;
+		} else {
+			activeSubgroupIndex = subgroupIndex;
+		}
+	}
 </script>
 
 <div class="navbar">
@@ -231,17 +45,58 @@
 		</svg>
 	</button>
 
-	<nav class={$hamburgerOpen ? 'open' : ''}>
+	<nav class:open={$hamburgerOpen}>
 		<ul>
-			{#each navItems as { group, items } (group)}
-				{#if group}
-					<li class="group-label">
-						<span>{group}</span>
-					</li>
+			{#each navItems as { group, subGroups, items }, groupIndex}
+				<li class="group-label">
+					<button type="button" on:click={() => toggleGroup(groupIndex)}>
+						<span>
+							<img src={'icon/' + group.svg} alt={group.label} />
+							{group.label}!!
+
+							{#if activeGroupIndex === groupIndex}
+								<Icon icon="ep:arrow-down" />
+							{:else}
+								<Icon icon="ep:arrow-right" />
+							{/if}
+						</span>
+					</button>
+				</li>
+
+				{#if items && activeGroupIndex === groupIndex}
+					{#each items as item (item.label)}
+						<NavItem href={item.href} icon={item.icon} label={item.label} on:click={toggleMenu} />
+					{/each}
 				{/if}
-				{#each items as item (item.href)}
-					<NavItem href={item.href} icon={item.icon} label={item.label} on:click={toggleMenu} />
-				{/each}
+
+				{#if subGroups}
+					{#each subGroups as subGroup, subgroupIndex}
+						{#if activeGroupIndex === groupIndex}
+							<li class="group-label">
+								<button type="button" on:click={() => toggleSubgroup(subgroupIndex)}>
+									<span>
+										<Icon icon={subGroup.icon} />
+										{subGroup.label}! {#if activeSubgroupIndex === subgroupIndex}
+											<Icon icon="ep:arrow-down" />
+										{:else}
+											<Icon icon="ep:arrow-right" />
+										{/if}
+									</span>
+								</button>
+							</li>
+							{#if activeSubgroupIndex === subgroupIndex}
+								{#each subGroup.items as item}
+									<NavItem
+										href={item.href}
+										icon={item.icon}
+										label={item.label}
+										on:click={toggleMenu}
+									/>
+								{/each}
+							{/if}
+						{/if}
+					{/each}
+				{/if}
 			{/each}
 		</ul>
 	</nav>
@@ -283,8 +138,11 @@
 	}
 	.group-label {
 		margin: 30px 0 -15px 12px;
-		font-size: 14px;
+		font-size: 17px;
 		font-weight: 400;
+	}
+	li {
+		margin: 27px 0;
 	}
 	button {
 		cursor: pointer;

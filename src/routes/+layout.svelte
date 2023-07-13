@@ -17,9 +17,9 @@
 
 <main>
 	<header>
-		<NavBar open={hamburgerOpen} toggle={toggleMenu} />
+		<NavBar />
 		<Logo />
-		<Header open={drawerOpen} toggle={toggleDrawer} />
+		<Header />
 	</header>
 	<div class="container">
 		<slot />
