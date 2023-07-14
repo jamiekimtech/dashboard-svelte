@@ -1,4 +1,5 @@
 <script>
+	import { slide } from 'svelte/transition';
 	import Icon from '@iconify/svelte';
 	import { toggleMenu } from '../../menuStore';
 	export let href = '';
@@ -14,7 +15,7 @@
 
 <style>
 	li {
-		margin: 27px 0;
+		margin: 40px 0 0 40px;
 	}
 	li a {
 		text-decoration: none;

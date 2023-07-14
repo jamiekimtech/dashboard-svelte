@@ -42,12 +42,12 @@ export const navItems = [
 					{
 						href: '/',
 						icon: '',
-						label: 'Modern Menu'
+						label: 'Collapsed Menu'
 					},
 					{
 						href: '/',
 						icon: '',
-						label: 'Collapsed Menu'
+						label: 'Compact Menu'
 					},
 					{
 						href: '/',
@@ -58,6 +58,11 @@ export const navItems = [
 						href: '/',
 						icon: '',
 						label: 'Overlay Menu'
+					},
+					{
+						href: '/',
+						icon: '',
+						label: 'Modern Menu'
 					}
 				]
 			},
