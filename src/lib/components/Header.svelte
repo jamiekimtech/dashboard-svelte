@@ -1,67 +1,35 @@
 <script>
-	let drawerOpen = false;
-
-	function toggleDrawer() {
-		drawerOpen = !drawerOpen;
-	}
-
-	export let width = '38';
-
-	let color = 'var(--primary)';
+	import Logo from './Logo.svelte';
+	import NavBar from './NavBar.svelte';
+	import UserPanel from './UserPanel.svelte';
+	import Icon from '@iconify/svelte';
+	import { platform } from './MediaQuery.svelte';
 </script>
 
-<header>
-	<button on:click={toggleDrawer}>
-		<svg
-			viewBox="0 0 100 100"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="3.5"
-			{width}
-			{color}
-			stroke-linecap="round"
-		>
-			<circle class="dot" cx="50" cy="33" r="2" />
-			<circle class="dot" cx="50" cy="50" r="2" />
-			<circle class="dot" cx="50" cy="67" r="2" />
-		</svg>
-	</button>
-	{#if drawerOpen}
-	<div class="openedDrawer">
-		<div>O-</div>
-		<div class='rightDrawer'><div>Flag</div>
-		<div>Bell</div>
-		<div>Message</div>
-		<div>Avatar</div>
-	</div></div>
-			{/if}
-</header>
+<main>
+	{#if $platform == 'mobile'}
+		<NavBar />
+		<Logo />
+		<UserPanel />
+	{:else if $platform == 'tablet'}
+		<span><NavBar /><Icon icon="lucide:search" width="1.4em" /></span>
+		<Logo style="padding-right: 100px;" />
+		<UserPanel />
+	{:else}
+		<h1>DESKTOP</h1>
+	{/if}
+</main>
 
 <style>
-	button {
-		cursor: pointer;
+	main {
 		display: flex;
 		align-items: center;
-		overflow: hidden;
-		border: none;
-		background-color: transparent;
-	}
-
-	.openedDrawer {
-		display: flex;
 		justify-content: space-between;
-		position: absolute;
-		top: 70px;
-		left: 0;
 		width: 100%;
-		z-index: 10;
 		padding: 10px;
-		background-color: white;
-		height: 62px;
 	}
-
-.rightDrawer {
-	display: flex;
-	gap: 10px;
-}
+	span {
+		display: flex;
+		align-items: center;
+	}
 </style>
