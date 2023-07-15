@@ -30,19 +30,6 @@
 				<circle class="dot" cx="50" cy="67" r="2" />
 			</svg>
 		</button>
-		{#if drawerOpen}
-			<div class="openedDrawer" transition:slide|global>
-				<Icon icon="lucide:search" width="1.4em" />
-				<div class="rightDrawer">
-					<img src="./icon/flag-us.svg" alt="flag" />
-					<Icon icon="mdi:bell-outline" width="1.4em" /><Icon
-						icon="mdi:envelope-outline"
-						width="1.4em"
-					/>
-					<Icon icon="radix-icons:avatar" width="2em" />
-				</div>
-			</div>
-		{/if}
 	{:else if $platform == 'tablet'}
 		<div class="tablet-user-panel">
 			<img src="./icon/flag-us.svg" alt="flag" />
@@ -56,6 +43,19 @@
 		<h1>DESKTOP</h1>
 	{/if}
 </header>
+{#if drawerOpen}
+	<div class="openedDrawer" transition:slide|global>
+		<Icon icon="lucide:search" width="1.4em" />
+		<div class="rightDrawer">
+			<img src="./icon/flag-us.svg" alt="flag" />
+			<Icon icon="mdi:bell-outline" width="1.4em" /><Icon
+				icon="mdi:envelope-outline"
+				width="1.4em"
+			/>
+			<Icon icon="radix-icons:avatar" width="2em" />
+		</div>
+	</div>
+{/if}
 
 <style>
 	button {
@@ -72,12 +72,12 @@
 		justify-content: space-between;
 		align-items: center;
 		position: absolute;
-		top: 60px;
+		top: 69px;
 		left: 0;
 		width: 100%;
 		z-index: 10;
 		padding: 20px;
-		background-color: rgb(255, 255, 255);
+		background-color: white;
 		height: 75px;
 	}
 	img {
@@ -98,7 +98,6 @@
 		width: 230px;
 		display: flex;
 		align-items: center;
-
 		justify-content: space-around;
 	}
 </style>
