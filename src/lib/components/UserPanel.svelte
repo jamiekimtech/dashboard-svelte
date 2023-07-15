@@ -107,7 +107,6 @@
 		width: 230px;
 		display: flex;
 		align-items: center;
-
 		justify-content: space-around;
 	}
 </style>
