@@ -72,7 +72,7 @@
 		justify-content: space-between;
 		align-items: center;
 		position: absolute;
-		top: 60px;
+		top: 69px;
 		left: 0;
 		width: 100%;
 		z-index: 10;
@@ -98,7 +98,6 @@
 		width: 230px;
 		display: flex;
 		align-items: center;
-
 		justify-content: space-around;
 	}
 </style>
