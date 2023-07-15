@@ -1,10 +1,23 @@
+<script>
+	import { platform } from './MediaQuery.svelte';
+</script>
+
 <main>
-	<a href="/"
-		><div class="logo">
-			<img class="brand-logo" alt="modern admin logo" src="img/logo.png" />
-			<h4>Modern</h4>
-		</div></a
-	>
+	{#if $platform == 'mobile'}
+		<a href="/"
+			><div class="logo">
+				<img alt="modern admin logo" src="img/logo.png" />
+				<h4>Modern</h4>
+			</div></a
+		>
+	{:else}
+		<a href="/"
+			><div class="logo">
+				<img class="tablet-desktop-logo" alt="modern admin logo" src="img/logo.png" />
+				<h4>Modern</h4>
+			</div></a
+		>
+	{/if}
 </main>
 
 <style>
@@ -34,5 +47,9 @@
 	img {
 		width: 35px;
 		margin-right: 8px;
+	}
+
+	.tablet-desktop-logo {
+		margin-left: -120%;
 	}
 </style>

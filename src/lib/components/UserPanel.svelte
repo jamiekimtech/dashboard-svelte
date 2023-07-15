@@ -41,6 +41,14 @@
 		</div>
 	{:else}
 		<h1>DESKTOP</h1>
+		<div class="tablet-user-panel">
+			<img src="./icon/flag-us.svg" alt="flag" />
+			<Icon icon="mdi:bell-outline" width="1.4em" /><Icon
+				icon="mdi:envelope-outline"
+				width="1.4em"
+			/>
+			<Icon icon="radix-icons:avatar" width="2em" />
+		</div>
 	{/if}
 </header>
 {#if drawerOpen}
@@ -73,6 +81,7 @@
 		align-items: center;
 		position: absolute;
 		top: 60px;
+		top: 69px;
 		left: 0;
 		width: 100%;
 		z-index: 10;

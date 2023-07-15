@@ -1,6 +1,9 @@
 <script>
 	import Icon from '@iconify/svelte';
 	import { slide } from 'svelte/transition';
+	import { platform } from './MediaQuery.svelte';
+
+	import LargeNavBar from './LargeNavBar.svelte';
 	import { hamburgerOpen, toggleMenu } from '../../menuStore';
 	import { navItems } from '../../navItems';
 	import NavItem from './NavItem.svelte';
@@ -45,66 +48,69 @@
 			<path class="line" d="M 30,63 h 42" />
 		</svg>
 	</button>
+	{#if $platform == 'mobile'}
+		<nav class:open={$hamburgerOpen}>
+			<ul>
+				{#each navItems as { group, subGroups, items }, groupIndex}
+					<li class="group-label" transition:slide|global>
+						<button on:click={() => toggleGroup(groupIndex)}>
+							<div class="menu-container">
+								<img src={'icon/' + group.svg} alt={group.label} />
+								<span class="label-container">{group.label}</span>
+								<span class="arrow-container">
+									{#if activeGroupIndex === groupIndex}
+										<Icon icon="ep:arrow-down" />
+									{:else}
+										<Icon icon="ep:arrow-right" />
+									{/if}
+								</span>
+							</div>
+						</button>
+					</li>
 
-	<nav class:open={$hamburgerOpen}>
-		<ul>
-			{#each navItems as { group, subGroups, items }, groupIndex}
-				<li class="group-label" transition:slide|global>
-					<button on:click={() => toggleGroup(groupIndex)}>
-						<div class="menu-container">
-							<img src={'icon/' + group.svg} alt={group.label} />
-							<span class="label-container">{group.label}</span>
-							<span class="arrow-container">
-								{#if activeGroupIndex === groupIndex}
-									<Icon icon="ep:arrow-down" />
-								{:else}
-									<Icon icon="ep:arrow-right" />
+					{#if items && activeGroupIndex === groupIndex}
+						{#each items as item (item.label)}
+							<NavItem href={item.href} icon={item.icon} label={item.label} on:click={toggleMenu} />
+						{/each}
+					{/if}
+
+					{#if subGroups}
+						{#each subGroups as subGroup, subgroupIndex}
+							{#if activeGroupIndex === groupIndex}
+								<li class="group-label" transition:slide>
+									<button class="subgroup-button" on:click={() => toggleSubgroup(subgroupIndex)}>
+										<div class="menu-container">
+											<Icon icon={subGroup.icon} style="margin-right: 5px; width: 30px;" />
+											<span class="label-container">{subGroup.label}</span>
+											<span class="arrow-container">
+												{#if activeSubgroupIndex === subgroupIndex}
+													<Icon icon="ep:arrow-down" />
+												{:else}
+													<Icon icon="ep:arrow-right" />
+												{/if}</span
+											>
+										</div>
+									</button>
+								</li>
+								{#if activeSubgroupIndex === subgroupIndex}
+									{#each subGroup.items as item}
+										<NavItem
+											href={item.href}
+											icon={item.icon}
+											label={item.label}
+											on:click={toggleMenu}
+										/>
+									{/each}
 								{/if}
-							</span>
-						</div>
-					</button>
-				</li>
-
-				{#if items && activeGroupIndex === groupIndex}
-					{#each items as item (item.label)}
-						<NavItem href={item.href} icon={item.icon} label={item.label} on:click={toggleMenu} />
-					{/each}
-				{/if}
-
-				{#if subGroups}
-					{#each subGroups as subGroup, subgroupIndex}
-						{#if activeGroupIndex === groupIndex}
-							<li class="group-label" transition:slide>
-								<button class="subgroup-button" on:click={() => toggleSubgroup(subgroupIndex)}>
-									<div class="menu-container">
-										<Icon icon={subGroup.icon} style="margin-right: 5px; width: 30px;" />
-										<span class="label-container">{subGroup.label}</span>
-										<span class="arrow-container">
-											{#if activeSubgroupIndex === subgroupIndex}
-												<Icon icon="ep:arrow-down" />
-											{:else}
-												<Icon icon="ep:arrow-right" />
-											{/if}</span
-										>
-									</div>
-								</button>
-							</li>
-							{#if activeSubgroupIndex === subgroupIndex}
-								{#each subGroup.items as item}
-									<NavItem
-										href={item.href}
-										icon={item.icon}
-										label={item.label}
-										on:click={toggleMenu}
-									/>
-								{/each}
 							{/if}
-						{/if}
-					{/each}
-				{/if}
-			{/each}
-		</ul>
-	</nav>
+						{/each}
+					{/if}
+				{/each}
+			</ul>
+		</nav>
+	{:else}
+		<LargeNavBar />
+	{/if}
 </div>
 
 <style>
@@ -189,7 +195,7 @@
 		text-align: left;
 	}
 	.arrow-container {
-		width: 10%; /* adjust as needed */
+		width: 10%;
 		text-align: right;
 	}
 </style>

@@ -13,10 +13,17 @@
 		<UserPanel />
 	{:else if $platform == 'tablet'}
 		<span><NavBar /><Icon icon="lucide:search" width="1.4em" /></span>
-		<Logo style="padding-right: 100px;" />
+		<Logo />
 		<UserPanel />
 	{:else}
-		<h1>DESKTOP</h1>
+		<span class="desktop-user-panel"
+			><NavBar /><Icon icon="lucide:maximize" width="1.4em" /><span>Mega</span><Icon
+				icon="lucide:search"
+				width="1.4em"
+			/></span
+		>
+		<Logo />
+		<UserPanel />
 	{/if}
 </main>
 
@@ -31,5 +38,8 @@
 	span {
 		display: flex;
 		align-items: center;
+	}
+	.desktop-user-panel {
+		gap: 20px;
 	}
 </style>

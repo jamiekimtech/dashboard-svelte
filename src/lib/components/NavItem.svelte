@@ -1,5 +1,4 @@
 <script>
-	import { slide } from 'svelte/transition';
 	import Icon from '@iconify/svelte';
 	import { toggleMenu } from '../../menuStore';
 	export let href = '';
