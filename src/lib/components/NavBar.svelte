@@ -53,7 +53,7 @@
 					<button on:click={() => toggleGroup(groupIndex)}>
 						<div class="menu-container">
 							<img src={'icon/' + group.svg} alt={group.label} />
-							<span class="label-container">{group.label}!!</span>
+							<span class="label-container">{group.label}</span>
 							<span class="arrow-container">
 								{#if activeGroupIndex === groupIndex}
 									<Icon icon="ep:arrow-down" />
@@ -78,7 +78,7 @@
 								<button class="subgroup-button" on:click={() => toggleSubgroup(subgroupIndex)}>
 									<div class="menu-container">
 										<Icon icon={subGroup.icon} style="margin-right: 5px; width: 30px;" />
-										<span class="label-container">{subGroup.label}!</span>
+										<span class="label-container">{subGroup.label}</span>
 										<span class="arrow-container">
 											{#if activeSubgroupIndex === subgroupIndex}
 												<Icon icon="ep:arrow-down" />
@@ -118,7 +118,7 @@
 		display: flex;
 		flex-direction: column;
 		position: absolute;
-		top: 70px;
+		top: 67px;
 		left: 0;
 		width: 285px;
 		height: 100vh;
@@ -126,6 +126,7 @@
 		transform: translateX(-100%);
 		transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 		opacity: 0;
+		margin-left: -10px;
 	}
 	nav.open {
 		transform: translateX(0);
@@ -150,9 +151,6 @@
 		font-size: 16px;
 		letter-spacing: 0.5px;
 	}
-	li {
-		margin: 27px 0;
-	}
 	button {
 		cursor: pointer;
 		display: flex;
@@ -160,7 +158,6 @@
 		overflow: hidden;
 		border: none;
 		background-color: transparent;
-		padding-bottom: 8.5px;
 		width: 88%;
 	}
 

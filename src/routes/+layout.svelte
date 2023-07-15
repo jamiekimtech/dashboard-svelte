@@ -1,7 +1,5 @@
 <script>
 	import Header from '../lib/components/Header.svelte';
-	import Logo from '../lib/components/Logo.svelte';
-	import NavBar from '../lib/components/NavBar.svelte';
 
 	let hamburgerOpen = false;
 	let drawerOpen = false;
@@ -17,9 +15,7 @@
 
 <main>
 	<header>
-		<NavBar />
-		<Logo />
-		<Header/>
+		<Header />
 	</header>
 	<div class="container">
 		<slot />
@@ -62,7 +58,6 @@
 		align-items: center;
 		background-color: white;
 		color: var(--primary);
-		padding: 5px 5px -1px 5px;
 		z-index: 10;
 		position: fixed;
 		top: 0;

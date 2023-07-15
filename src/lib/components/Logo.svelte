@@ -16,14 +16,12 @@
 		background-color: white;
 		color: var(--primary);
 		padding: 5px 5px -1px 5px;
-		width: 100%;
 	}
 	.logo {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		letter-spacing: 0.5px;
-		width: 122px;
 	}
 	a {
 		text-decoration: none;

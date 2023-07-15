@@ -15,7 +15,7 @@
 
 <style>
 	li {
-		margin: 40px 0 0 40px;
+		margin: 28px 0 0 45px;
 	}
 	li a {
 		text-decoration: none;
