@@ -48,7 +48,7 @@
 			{#if subGroups}
 				{#each subGroups as subGroup, subgroupIndex}
 					{#if activeGroupIndex === groupIndex}
-						<li class="subgroup-label" transition:slide>
+						<li class="subgroup-label">
 							<button class="subgroup-button" on:click={() => toggleSubgroup(subgroupIndex)}>
 								<div class="subgroup-container">
 									<Icon icon={subGroup.icon} style="margin-right: 5px; width: 30px;" />
@@ -110,7 +110,7 @@
 	}
 	li {
 		width: 100%;
-		border-bottom: 1px solid blue;
+		border-bottom: 1px solid rgb(230, 230, 230);
 	}
 	.group-label {
 		font-size: 15px;
