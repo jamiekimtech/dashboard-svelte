@@ -520,13 +520,13 @@ export const navItems = [
 		items: [
 			{
 				href: '/animation',
-				icon: 'ph:eye-slash',
+				icon: 'line-md:loading-alt-loop',
 				label: 'Animation'
 			}
 		],
 		subGroups: [
 			{
-				icon: 'iconoir:multiple-pages-empty',
+				icon: 'fluent:phone-32-regular',
 				label: 'Cards',
 				items: [
 					{
@@ -557,7 +557,7 @@ export const navItems = [
 				]
 			},
 			{
-				icon: 'la-paint-brush',
+				icon: 'solar:fire-outline',
 				label: 'Advanced Cards',
 				items: [
 					{
@@ -598,7 +598,7 @@ export const navItems = [
 				]
 			},
 			{
-				icon: 'la-puzzle-piece',
+				icon: 'cil:compass',
 				label: 'Content',
 				items: [
 					{
@@ -629,7 +629,7 @@ export const navItems = [
 				]
 			},
 			{
-				icon: 'la-android',
+				icon: 'material-symbols:data-table-outline',
 				label: 'Components',
 				items: [
 					{
@@ -675,7 +675,7 @@ export const navItems = [
 				]
 			},
 			{
-				icon: 'iconoir:multiple-pages-empty',
+				icon: 'system-uicons:diamond',
 				label: 'Extra Components',
 				items: [
 					{
@@ -706,7 +706,7 @@ export const navItems = [
 				]
 			},
 			{
-				icon: 'iconoir:multiple-pages-empty',
+				icon: 'bi:eye',
 				label: 'Icons',
 				items: [
 					{
@@ -747,7 +747,7 @@ export const navItems = [
 		items: [
 			{
 				href: '/form-repeater',
-				icon: 'ph:eye-slash',
+				icon: 'clarity:terminal-line',
 				label: 'Form Repeater'
 			}
 		],
@@ -784,7 +784,7 @@ export const navItems = [
 				]
 			},
 			{
-				icon: 'la-paint-brush',
+				icon: 'pepicons-pencil:file',
 				label: 'Form Layouts',
 				items: [
 					{
@@ -810,7 +810,7 @@ export const navItems = [
 				]
 			},
 			{
-				icon: 'la-puzzle-piece',
+				icon: 'icons8:paste',
 				label: 'Form Wizard',
 				items: [
 					{
@@ -836,8 +836,8 @@ export const navItems = [
 
 		subGroups: [
 			{
-				icon: 'iconoir:multiple-pages-empty',
-				label: 'Bootstrap Tables',
+				icon: 'uit:table',
+				label: 'Boot Tables',
 				items: [
 					{
 						href: '/',
@@ -867,7 +867,7 @@ export const navItems = [
 				]
 			},
 			{
-				icon: 'la-paint-brush',
+				icon: 'la:th',
 				label: 'DataTables',
 				items: [
 					{
@@ -893,7 +893,7 @@ export const navItems = [
 				]
 			},
 			{
-				icon: 'la-puzzle-piece',
+				icon: 'uit:th',
 				label: 'DataTables Ext.',
 				items: [
 					{
@@ -919,17 +919,17 @@ export const navItems = [
 		items: [
 			{
 				href: '/block-ui',
-				icon: 'ph:eye-slash',
+				icon: 'clarity:terminal-line',
 				label: 'Block UI'
 			},
 			{
 				href: '/image-cropper',
-				icon: 'ph:eye-slash',
+				icon: 'icons8:crop',
 				label: 'Image Cropper'
 			},
 			{
 				href: '/drag-drop',
-				icon: 'ph:eye-slash',
+				icon: 'tabler:pointer',
 				label: 'Drag & Drop'
 			}
 		],
@@ -1008,17 +1008,17 @@ export const navItems = [
 		items: [
 			{
 				href: '/apex-charts',
-				icon: 'ph:eye-slash',
+				icon: 'ph:chart-pie',
 				label: 'Apex Charts'
 			},
 			{
 				href: '/morris-charts',
-				icon: 'ph:eye-slash',
+				icon: 'icons8:share',
 				label: 'Morris Charts'
 			},
 			{
 				href: '/rickshaw-charts',
-				icon: 'ph:eye-slash',
+				icon: 'bi:bullseye',
 				label: 'Rickshaw Charts'
 			}
 		],

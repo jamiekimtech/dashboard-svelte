@@ -111,6 +111,11 @@
 		overflow-y: scroll;
 		align-items: center;
 	}
+	ul::-webkit-scrollbar {
+		width: 0px;
+		background: transparent;
+	}
+
 	li {
 		width: 100%;
 		border-bottom: 1px solid rgb(230, 230, 230);
