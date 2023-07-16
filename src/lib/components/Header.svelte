@@ -12,7 +12,10 @@
 		<Logo />
 		<UserPanel />
 	{:else if $platform == 'tablet'}
-		<span><NavBar /><Icon icon="lucide:search" width="1.4em" /></span>
+		<span>
+			<NavBar />
+			<Icon icon="lucide:search" width="1.4em" /></span
+		>
 		<Logo />
 		<UserPanel />
 	{:else}

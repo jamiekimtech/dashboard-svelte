@@ -31,7 +31,10 @@
 	<ul>
 		{#each navItems as { group, subGroups, items }, groupIndex}
 			<li class="group-label" transition:slide|global>
-				<button on:click={() => toggleGroup(groupIndex)}>
+				<button
+					on:mouseenter={() => (activeGroupIndex = groupIndex)}
+					on:mouseleave={() => (activeGroupIndex = null)}
+				>
 					<div class="group-container">
 						<img src={'icon/' + group.svg} alt={group.label} />
 						<div class="label-container">{group.label}</div>
@@ -49,7 +52,7 @@
 				{#each subGroups as subGroup, subgroupIndex}
 					{#if activeGroupIndex === groupIndex}
 						<li class="subgroup-label">
-							<button class="subgroup-button" on:click={() => toggleSubgroup(subgroupIndex)}>
+							<button on:click={() => toggleGroup(groupIndex)}>
 								<div class="subgroup-container">
 									<Icon icon={subGroup.icon} style="margin-right: 5px; width: 30px;" />
 									<span class="label-container">{subGroup.label}</span>
@@ -82,7 +85,7 @@
 
 <style>
 	nav {
-		position: absolute;
+		position: fixed;
 		top: 66px;
 		left: 0;
 		width: 130px;
@@ -95,7 +98,7 @@
 	nav.open {
 		transform: translateX(0);
 		opacity: 1;
-		position: absolute;
+		position: fixed;
 		z-index: 1;
 	}
 	ul {
@@ -141,10 +144,6 @@
 		justify-content: center;
 		align-items: center;
 		margin: 21px 0 21.5px 0;
-	}
-	.subgroup-button {
-		width: 72%;
-		margin: 10px 30px 0 40px;
 	}
 	img {
 		width: 35%;

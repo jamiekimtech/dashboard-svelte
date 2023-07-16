@@ -142,7 +142,6 @@
 	}
 	ul {
 		list-style: none;
-		/* margin: -8px 0 0 -9px; */
 		background-color: transparent;
 		height: 100vh;
 		overflow: auto;
