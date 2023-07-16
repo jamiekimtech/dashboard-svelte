@@ -127,7 +127,7 @@
 		top: 67px;
 		left: 0;
 		width: 285px;
-		height: 100vh;
+		height: calc(100vh - 67px);
 		background: white;
 		transform: translateX(-100%);
 		transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -142,7 +142,7 @@
 	}
 	ul {
 		list-style: none;
-		margin: -8px 0 0 -9px;
+		/* margin: -8px 0 0 -9px; */
 		background-color: transparent;
 		height: 100vh;
 		overflow: auto;

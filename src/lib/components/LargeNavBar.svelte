@@ -82,13 +82,10 @@
 
 <style>
 	nav {
-		display: flex;
-		flex-direction: column;
 		position: absolute;
 		top: 66px;
 		left: 0;
-		width: 285px;
-		height: 100vh;
+		width: 130px;
 		background: white;
 		transform: translateX(-100%);
 		transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -103,16 +100,21 @@
 	}
 	ul {
 		list-style: none;
-		margin: -8px 0 0 -9px;
 		background-color: transparent;
-		height: 100vh;
-		overflow: auto;
+		height: calc(100vh - 66px);
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		overflow-y: scroll;
+		align-items: center;
 	}
-
+	li {
+		width: 100%;
+		border-bottom: 1px solid blue;
+	}
 	.group-label {
-		margin: 30px 0 -15px 12px;
-		font-size: 17px;
-		font-weight: 400;
+		font-size: 15px;
+		display: flex;
 	}
 	.subgroup-label {
 		margin: 30px 0 -15px 12px;
@@ -131,23 +133,22 @@
 		overflow: hidden;
 		border: none;
 		background-color: transparent;
-		width: 88%;
+		margin: auto;
 	}
 	.group-container {
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
+		justify-content: center;
 		align-items: center;
-		width: 100%;
-		position: relative;
+		margin: 21px 0 21.5px 0;
 	}
 	.subgroup-button {
 		width: 72%;
 		margin: 10px 30px 0 40px;
 	}
 	img {
-		width: 14%;
-		margin-right: 15px;
+		width: 35%;
+		margin-bottom: 10px;
 	}
 
 	.subgroup-container {
@@ -159,8 +160,7 @@
 	}
 
 	.label-container {
-		width: 150px;
-		text-align: left;
+		width: 100px;
 	}
 	.arrow-container {
 		width: 10%;

@@ -510,62 +510,7 @@ export const navItems = [
 			}
 		]
 	},
-	//Templates
-	{
-		group: {
-			svg: 'mbri-sites.svg',
-			label: 'Templates'
-		},
-		subGroups: [
-			{
-				icon: 'ps:double-arrow',
-				label: 'Vertical',
-				items: [
-					{
-						href: '/',
-						icon: '',
-						label: 'Classic Menu'
-					},
-					{
-						href: '/',
-						icon: '',
-						label: 'Modern Menu'
-					},
-					{
-						href: '/',
-						icon: '',
-						label: 'Collapsed Menu'
-					},
-					{
-						href: '/',
-						icon: '',
-						label: 'Content Menu'
-					},
-					{
-						href: '/',
-						icon: '',
-						label: 'Overlay Menu'
-					}
-				]
-			},
-			{
-				icon: 'line-md:double-arrow-horizontal',
-				label: 'Horizontal',
-				items: [
-					{
-						href: '/',
-						icon: 'la:icon2',
-						label: 'Classic'
-					},
-					{
-						href: '/',
-						icon: 'la:icon2',
-						label: 'Full Width'
-					}
-				]
-			}
-		]
-	},
+
 	//User Interface
 	{
 		group: {

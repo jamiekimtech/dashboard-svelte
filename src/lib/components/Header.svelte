@@ -23,6 +23,7 @@
 			/></span
 		>
 		<Logo />
+
 		<UserPanel />
 	{/if}
 </main>
@@ -40,6 +41,6 @@
 		align-items: center;
 	}
 	.desktop-user-panel {
-		gap: 20px;
+		gap: 10px;
 	}
 </style>
