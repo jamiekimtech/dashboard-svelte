@@ -1,6 +1,6 @@
 <script>
 	import { browser } from '$app/environment';
-	import { FY2021 as satisfactionData2021 } from '$lib/data/satisfaction.json';
+	import { revenue } from '$lib/data/chartObj.json';
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 
@@ -8,29 +8,12 @@
 
 	let barChartElement;
 	const chartData = {
-		labels: satisfactionData2021.map(({ framework }) => framework),
+		labels: revenue.map(({ framework }) => framework),
 		datasets: [
 			{
-				label: 'Satisfaction (%)',
-				data: satisfactionData2021.map(({ score }) => score),
-				backgroundColor: [
-					'hsl(347 38% 49%)',
-					'hsl(346 65% 63%)',
-					'hsl(346 49% 56%)',
-					'hsl(346 89% 70%)',
-					'hsl(346 90% 76%)',
-					'hsl(346 90% 73%)',
-					'hsl(346 89% 79%)',
-					'hsl(346 89% 85%)',
-					'hsl(347 89% 82%)',
-					'hsl(346 90% 88%)',
-					'hsl(347 87% 94%)',
-					'hsl(347 91% 91%)',
-					'hsl(346 87% 97%)'
-				],
-				borderColor: ['hsl(43 100% 52%)'],
-				borderRadius: 4,
-				borderWidth: 2
+				data: revenue.map(({ score }) => score),
+				borderColor: ['#ff4961'],
+				borderWidth: 4
 			}
 		]
 	};
@@ -38,7 +21,7 @@
 	onMount(() => {
 		if (browser) {
 			new Chart(barChartElement, {
-				type: 'bar',
+				type: 'line',
 				data: chartData,
 				options: {
 					plugins: {
@@ -49,21 +32,16 @@
 					scales: {
 						x: {
 							grid: {
-								color: 'hsl(43 100% 52% / 10%)'
+								color: 'hsl(43 100% 52% / 0%)'
 							},
-							ticks: { color: 'hsl(43 100% 52% )' }
+							ticks: { color: '#000' }
 						},
 						y: {
-							beginAtZero: false,
-							ticks: { color: 'hsl(43 100% 52% )', font: { size: 18 } },
+							beginAtZero: true,
+							ticks: { color: '#000', font: { size: 13 }, stepSize: 5000, max: 20000 },
+
 							grid: {
-								color: 'hsl(43 100% 52% / 40%)'
-							},
-							title: {
-								display: true,
-								text: 'Satisfaction (%)',
-								color: 'hsl(43 100% 52% )',
-								font: { size: 24, family: 'Merriweather' }
+								color: 'hsl(0, 1%, 89%)'
 							}
 						}
 					}
@@ -74,6 +52,39 @@
 </script>
 
 <main>
-	<h1>+page.svelte in src</h1>
-	<canvas bind:this={barChartElement} />
+	<div class="card">
+		<h5>Revenue</h5>
+		<br />
+		<div class="card-data">
+			<div>
+				<h6>Current Week</h6>
+				<h2>$82,124</h2>
+			</div>
+			<div>
+				<h6>Previous Week</h6>
+				<h2>$52,502</h2>
+			</div>
+		</div>
+		<canvas bind:this={barChartElement} />
+	</div>
 </main>
+
+<style>
+	main {
+		color: var(--primary);
+	}
+	.card {
+		padding: 20px;
+	}
+	canvas {
+		background-color: #fff;
+		padding: 10px;
+	}
+
+	.card-data {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 60%;
+	}
+</style>

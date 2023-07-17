@@ -36,6 +36,7 @@
 
 	:root {
 		--primary: #5b5b5b;
+		--red: #ff4961;
 	}
 
 	.container {
@@ -55,8 +56,7 @@
 		transform: translateX(130px);
 	}
 	main {
-		/* background-color: #f3f4f9; */
-		background-color: #abb3de;
+		background-color: #f3f4f9;
 	}
 
 	header {

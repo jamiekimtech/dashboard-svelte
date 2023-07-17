@@ -1,0 +1,32 @@
+{
+	"revenue": [
+		{ "framework": "Mon", "score": 5000 },
+		{ "framework": "Tue", "score": 10000 },
+		{ "framework": "Wed", "score": 3000 },
+		{ "framework": "Thu", "score": 14000 },
+		{ "framework": "Fri", "score": 7000 },
+		{ "framework": "Sat", "score": 17000 },
+		{ "framework": "Sun", "score": 6000 },
+		{ "framework": "Mon", "score": 20000 }
+	],
+	"hit-rate": [
+		{ "framework": "Mon", "score": 5000 },
+		{ "framework": "Tue", "score": 10000 },
+		{ "framework": "Wed", "score": 3000 },
+		{ "framework": "Thu", "score": 14000 },
+		{ "framework": "Fri", "score": 7000 },
+		{ "framework": "Sat", "score": 17000 },
+		{ "framework": "Sun", "score": 6000 },
+		{ "framework": "Mon", "score": 20000 }
+	],
+	"deals": [
+		{ "framework": "Mon", "score": 5000 },
+		{ "framework": "Tue", "score": 10000 },
+		{ "framework": "Wed", "score": 3000 },
+		{ "framework": "Thu", "score": 14000 },
+		{ "framework": "Fri", "score": 7000 },
+		{ "framework": "Sat", "score": 17000 },
+		{ "framework": "Sun", "score": 6000 },
+		{ "framework": "Mon", "score": 20000 }
+	]
+}
