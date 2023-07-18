@@ -6,9 +6,11 @@
 
 	Chart.register(...registerables);
 
-	let barChartElement;
-	const chartData = {
-		labels: revenue.map(({ framework }) => framework),
+	let lineChartElement;
+	let pieChartElement;
+
+	const chartData1 = {
+		labels: revenue.map(({ day }) => day),
 		datasets: [
 			{
 				data: revenue.map(({ score }) => score),
@@ -17,12 +19,21 @@
 			}
 		]
 	};
+	const chartData2 = {
+		datasets: [
+			{
+				data: [18, 82],
+				backgroundColor: ['#28d094', '#ff4961'],
+				borderWidth: 0
+			}
+		]
+	};
 
 	onMount(() => {
 		if (browser) {
-			new Chart(barChartElement, {
+			new Chart(lineChartElement, {
 				type: 'line',
-				data: chartData,
+				data: chartData1,
 				options: {
 					plugins: {
 						legend: {
@@ -47,6 +58,23 @@
 					}
 				}
 			});
+
+			new Chart(pieChartElement, {
+				type: 'doughnut',
+				data: chartData2,
+				options: {
+					borderRadius: '20',
+					responsive: true,
+					cutout: '95%',
+					spacing: 5,
+					scales: {
+						y: {
+							beginAtZero: true,
+							ticks: { color: '#fff', font: { size: 0 }, stepSize: 5000, max: 20000 }
+						}
+					}
+				}
+			});
 		}
 	});
 </script>
@@ -65,8 +93,9 @@
 				<h2>$52,502</h2>
 			</div>
 		</div>
-		<canvas bind:this={barChartElement} />
+		<canvas bind:this={lineChartElement} />
 	</div>
+	<canvas bind:this={pieChartElement} />
 </main>
 
 <style>
