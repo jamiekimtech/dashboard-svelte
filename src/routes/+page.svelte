@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import Icon from '@iconify/svelte';
+	import ProgressBar from '../lib/components/ProgressBar.svelte';
 
 	Chart.register(...registerables);
 
@@ -106,15 +107,21 @@
 		<canvas bind:this={lineChartElement} />
 	</div>
 	<div class="card">
-		<h6>
-			Hit Rate <span class="red">-12%</span>
-		</h6>
-		<h1 class="red">82%</h1>
+		<div class="flex">
+			<h6>
+				Hit Rate <span class="red">-12%</span>
+			</h6>
+			<Icon icon="ph:dots-three-vertical" width="25px" />
+		</div>
+		<h1 class="red absolute">82%</h1>
 		<canvas bind:this={pieChartElement1} />
 	</div>
 	<div class="card red-bg">
-		<h6>Deals -55%</h6>
-		<h1 class="red-bg">76%</h1>
+		<h1 class="red-bg absolute">76%</h1>
+		<div class="flex">
+			<span><h6>Deals -55%</h6> </span>
+			<span>152/200</span>
+		</div>
 		<canvas bind:this={pieChartElement2} />
 	</div>
 	<div class="card">
@@ -135,6 +142,38 @@
 			<Icon icon="basil:phone-in-outline" width="50px" color="red" />
 		</div>
 	</div>
+	<div class="card">
+		<div class="flex">
+			<h6>Emails</h6>
+			<Icon icon="ph:dots-three-vertical" width="25px" />
+		</div>
+		<div class="flex">
+			<h7>Open rate</h7>
+			<div>89%</div>
+		</div>
+		<ProgressBar progress={0.89} leftColor={'#ff6e81'} rightColor={'#ff4961'} />
+		<div class="flex">
+			<h7>Sent</h7>
+			<div>310/500</div>
+		</div>
+		<ProgressBar progress={0.5} leftColor={'#28d094'} rightColor={'#208e68'} />
+	</div>
+	<div class="card center">
+		<h6>Average Deal Size</h6>
+		<div class="red">-30%</div>
+		<h1>$12,536</h1>
+		<p>Per rep</p>
+		<div class="green">12%</div>
+		<h1>$18,548</h1>
+		<p>Per team</p>
+	</div>
+	<div class="card">
+		<h1>$1,596</h1>
+		<p>Total Earning</p>
+	</div>
+	<div class="card">
+		<h6>Recent Stories</h6>
+	</div>
 </main>
 
 <style>
@@ -146,6 +185,11 @@
 		padding: 20px;
 		margin: 15px 0 30px 0;
 		box-shadow: 0px 14px 39px -17px rgba(0, 0, 0, 0.15);
+		position: relative;
+	}
+
+	.card h1 {
+		font-size: 35px;
 	}
 
 	.card h6 {
@@ -153,13 +197,18 @@
 		letter-spacing: 0.5px;
 	}
 
-	.card h1 {
+	.absolute {
 		font-weight: 900;
-		font-size: 35px;
 		letter-spacing: 1px;
 		position: absolute;
-		top: 50%;
-		left: 45%;
+		top: 53%;
+		right: 42%;
+	}
+
+	.center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	canvas {
 		padding: 10px;
@@ -190,5 +239,6 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		margin: 10px 0 12px 0;
 	}
 </style>
