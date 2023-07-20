@@ -1,7 +1,7 @@
 <script>
+	import Icon from '@iconify/svelte';
 	import { slide } from 'svelte/transition';
 	import { platform } from './MediaQuery.svelte';
-	import Icon from '@iconify/svelte';
 	let drawerOpen = false;
 
 	function toggleDrawer() {
@@ -40,7 +40,6 @@
 			<Icon icon="radix-icons:avatar" width="2em" />
 		</div>
 	{:else}
-		<h1>DESKTOP</h1>
 		<div class="tablet-user-panel">
 			<img src="./icon/flag-us.svg" alt="flag" />
 			<Icon icon="mdi:bell-outline" width="1.4em" /><Icon
